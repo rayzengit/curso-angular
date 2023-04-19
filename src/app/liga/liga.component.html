@@ -1,0 +1,88 @@
+<h3>{{ liga_titulo }}</h3>
+<hr/>
+<strong>La mejor Liga:</strong>
+<br/>
+<br/>
+<div *ngIf="liga_extranjera == true">
+<button (click)="cambiarExtranjero(false)">Mostrar liga</button>
+    <ul>
+        <li>{{ligas[1].nombre}}</li>
+        <li>{{ligas[1].fechacre}}</li>
+        <li>{{ligas[1].pais}}</li>
+        <li *ngIf="ligas[1].actividad==true">Esta Activo</li>
+        <li *ngIf="ligas[1].actividad==false">No Esta Activo</li>
+    </ul>
+</div>
+
+<div *ngIf="liga_extranjera == false">
+    <button (click)="cambiarExtranjero(true)">Mostrar ligas</button>
+    <ul>
+        <li>{{liga.nombre}}</li>
+        <li>{{liga.fechacre}}</li>
+        <li>{{liga.pais}}</li>
+        <li>{{liga.actividad}}</li>
+    </ul>
+</div>
+<hr/>
+<h3>Listado de Ligas</h3>
+<ul>
+    <li *ngFor="let ligs of ligas; let i = index">
+        Liga {{i+1}}:
+        <ul>
+            <li>{{ligs.nombre}}</li>
+            <li>{{ligs.fechacre}}</li>
+            <li>{{ligs.pais}}</li>
+            <li *ngIf="ligs.actividad==true">Esta Activo</li>
+            <li *ngIf="ligs.actividad==false">No Esta Activo</li>
+        </ul>
+    </li>
+</ul>
+<hr/>
+<h3>Colores Switch</h3>
+<ul [ngSwitch]="color">
+    <li *ngSwitchCase="'red'" [ngStyle]="{
+            'background':color, 
+            'color': 'white',
+            'padding': '20px'
+        }">
+        Es de color ROJO
+    </li>
+    <li *ngSwitchCase="'green'" [ngStyle]="{
+        'background':color, 
+        'color': 'white',
+        'padding': '20px'
+    }">
+    Es de color VERDE
+    </li>
+    <li *ngSwitchCase="'blue'" [ngStyle]="{
+        'background':color, 
+        'color': 'white',
+        'padding': '20px'
+    }">
+    Es de color AZUL
+    </li>
+</ul>
+<hr/>
+<h3>Selector de Colores:</h3>
+<hr/>
+<button (click)="logColorSeleccionado()">Mostrar LOG</button>
+<hr/>
+<input type="text" [(ngModel)]="color_seleccionado">
+<pre 
+    [style.border]="color_seleccionado == 'red' ? '3px solid red': '1px solid black'"
+    [class.fondoCeleste]="color_seleccionado == 'blue'"
+    [ngClass]="{
+        fondoCeleste: color_seleccionado == 'blue',
+        fondoVerde: color_seleccionado == 'green'
+    }"
+    >
+    <strong>Color elejido:</strong>
+    {{color_seleccionado}}
+</pre>
+<div [ngStyle]="{
+    'background':color_seleccionado, 
+    'width': '200px',
+    'height': '200px',
+    'float': 'right'
+}"></div>
+<div style="clear:both"></div>

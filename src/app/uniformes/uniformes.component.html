@@ -1,0 +1,38 @@
+<h1>Componente de uniformes</h1>
+
+<form #formUniforme="ngForm" (ngSubmit)="onSumit()">
+    <p>
+        <label>Marca:</label>
+        <input type="text" name="marca" #marca="ngModel" [(ngModel)]="uniforme.marca" required>
+        <span *ngIf="marca.touched && !marca.valid">
+            La marca del uniforme es incorrecto!!
+        </span>
+    </p>
+    <p>
+        <label>Precio:</label>
+        <input type="text" name="precio" #precio="ngModel" [(ngModel)]="uniforme.precio" 
+        required pattern="[0-9]+">
+        <span *ngIf="precio.touched && !precio.valid">
+            El precio del uniforme es incorrecto!!
+        </span>
+    </p>
+    <p>
+        <label>Talla:</label>
+        <input type="text" name="talla" #talla="ngModel" [(ngModel)]="uniforme.talla" 
+        required pattern="[a-zA-Z#]+">
+        <span *ngIf="talla.touched && !talla.valid">
+            La talla del uniforme es incorrecto!!
+        </span>
+    </p>
+
+    <input type="submit" value="Guardar">
+</form>
+
+<div style="float:left">
+    <h4>Listado de Uniformes: </h4>
+        <ul>
+            <li *ngFor="let uniforme of uniformes">
+                {{uniforme.marca}} - {{uniforme.precio}} - {{uniforme.talla}}
+            </li>
+        </ul>
+</div>

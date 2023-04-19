@@ -1,18 +1,39 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { routing, appRoutingProviders } from './app.routing';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DeporteComponent } from './deporte/deporte.component';
+import { LigaComponent } from './liga/liga.component';
+import { HomeComponent } from './home/home.component';
+import { ContactoComponent } from './contacto/contacto.component';
+import { UniformesComponent } from './uniformes/uniformes.component';
+
+import { ConversorPipe } from './pipes/conversor.pipe';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DeporteComponent,
+    LigaComponent,
+    HomeComponent,
+    ContactoComponent,
+    ConversorPipe,
+    UniformesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    routing
   ],
-  providers: [],
+  providers: [appRoutingProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,20 @@
+<h2>{{ titulo }}</h2>
+<br/>
+{{fecha| date:'dd/MM/yyyy'}}
+ -
+{{fecha| date:'fullDate'| uppercase}}
+ -
+{{nombre | lowercase}}
+ -
+ {{5 | conversor: 7}}
+<br/>
+<input type="text" [(ngModel)]="pais_a_guardar">
+<button (click)="guardarPais()">Añadir Pais</button>
+<p *ngIf="pais_a_guardar">El pais a guardar es: <strong>{{pais_a_guardar}}</strong></p>
+<h3>Listado de Paises:</h3>
+<ul>
+    <li *ngFor="let pais of paises_listado; let i = index">
+        {{pais}}
+        <button (click)="eliminarPais(i)">Eliminar</button>
+    </li>
+</ul>
