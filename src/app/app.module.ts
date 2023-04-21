@@ -11,6 +11,7 @@ import { LigaComponent } from './liga/liga.component';
 import { HomeComponent } from './home/home.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { UniformesComponent } from './uniformes/uniformes.component';
+import { PlantillasComponent } from './plantillas/plantillas.component';
 
 import { ConversorPipe } from './pipes/conversor.pipe';
 
@@ -24,7 +25,8 @@ import { ConversorPipe } from './pipes/conversor.pipe';
     HomeComponent,
     ContactoComponent,
     ConversorPipe,
-    UniformesComponent
+    UniformesComponent,
+    PlantillasComponent
   ],
   imports: [
     BrowserModule,

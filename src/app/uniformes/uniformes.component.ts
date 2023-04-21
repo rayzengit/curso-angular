@@ -12,6 +12,7 @@ import { PeticionesService } from "../services/peticiones.service";
 export class UniformesComponent{
     public uniforme: Uniforme;
     public uniformes: Array<Uniforme>;
+    public articulos: any;
     
     constructor(
         private _perticionesService: PeticionesService
@@ -23,7 +24,19 @@ export class UniformesComponent{
         ]
     }
     ngOnInit(){
-        console.log(this._perticionesService.getPrueba);
+        this._perticionesService.getArticulos().subscribe(
+            result => {
+                this.articulos = result;
+                if(!this.articulos){
+                    console.log("Error en el Servidor");
+                }
+            },
+            error=>{
+                var errorMenssage = <any>error;
+                console.log(errorMenssage);
+            }
+            
+        );
     }
     onSumit(){
         this.uniformes.push(this.uniforme);
