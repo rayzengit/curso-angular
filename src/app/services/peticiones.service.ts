@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import {HttpClient, HttpResponse,HttpHeaders} from "@angular/common/http";
-import { map } from "rxjs-compat/operator/map";
+import { map } from "rxjs-compat/operator/map";//npm install --save rxjs-compat
 import { Observable } from "rxjs";
 
 @Injectable()
